@@ -3,7 +3,7 @@
 -export([start_link/0,
 		add_handler/2,
 		delete_handler/2,
-		test/1]).
+		test/2]).
 
 start_link() ->
 	io:format("event start~n"),
@@ -15,5 +15,10 @@ add_handler(Handler, Args) ->
 delete_handler(Handler, Args) ->
 	gen_event:delete_handler(?MODULE, Handler, Args).
 
-test(Info) ->
+test(notify, Info) ->
+	gen_event:notify(?MODULE, Info);
+test(call, {Handler, Info}) ->
+	Ans = gen_event:call(?MODULE, Handler, Info),
+	io:format("call ans is:~p~n",[Ans]);
+test(_, Info) ->
 	gen_event:notify(?MODULE, Info).

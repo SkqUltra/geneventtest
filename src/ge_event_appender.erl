@@ -2,32 +2,37 @@
 
 -behaviour(gen_event).
 
--export([add_handle/0, delete_handle/0]).
+-export([add_handler/0, delete_handler/0]).
 
 -export([init/1, handle_event/2, handle_call/2,
 		handle_info/2, code_change/3, terminate/2]).
 
-add_handle() ->
+add_handler() ->
 	ge_event:add_handler(?MODULE, []).
 
-delete_handle() ->
+delete_handler() ->
 	ge_event:delete_handler(?MODULE, []).
 
 init([]) ->
+	io:format("Add a Handler~n"),
 	{ok, []}.
 
-handle_event(_, State) ->
-	io:format("event get~n"),
+handle_event(Event, State) ->
+	self() ! test,
+	io:format("event get:~p~n",[Event]),
 	{ok, State}.
 
 handle_info(_, State) ->
+	io:format("info get~n"),
 	{ok, State}.
 
 handle_call(_Request, State) ->
+	io:format("call get~n"),
     Reply = ok,
     {ok, Reply, State}.
 
 terminate(_Reason, _State) ->
+	io:format("Delete a Handler~n"),
     ok.
 
 code_change(_OldVsn, State, _Extra) ->
