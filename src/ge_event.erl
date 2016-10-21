@@ -6,6 +6,7 @@
 		test/1]).
 
 start_link() ->
+	io:format("event start~n"),
 	gen_event:start_link({local, ?MODULE}).
 
 add_handler(Handler, Args) ->

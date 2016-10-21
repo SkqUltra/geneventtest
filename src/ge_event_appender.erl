@@ -8,15 +8,16 @@
 		handle_info/2, code_change/3, terminate/2]).
 
 add_handle() ->
-	ge_event:add_handle(?MODULE, []).
+	ge_event:add_handler(?MODULE, []).
 
 delete_handle() ->
-	ge_event:delete_handle(?MODULE, []).
+	ge_event:delete_handler(?MODULE, []).
 
 init([]) ->
 	{ok, []}.
 
 handle_event(_, State) ->
+	io:format("event get~n"),
 	{ok, State}.
 
 handle_info(_, State) ->
