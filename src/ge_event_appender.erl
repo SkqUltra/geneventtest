@@ -17,8 +17,15 @@ init([]) ->
 	io:format("Add a Handler~n"),
 	{ok, []}.
 
+handle_event(woshilurjia, State) ->
+	io:format(hehe),
+	{ok, State};
 handle_event(Event, State) ->
 	self() ! test,
+	case Event =:= self of
+		true -> io:format("self is :~p~n", [self()]);
+		_ -> skip
+	end,
 	io:format("event get:~p~n",[Event]),
 	{ok, State}.
 

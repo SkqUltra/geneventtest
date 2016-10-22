@@ -7,7 +7,9 @@
 
 start_link() ->
 	io:format("event start~n"),
-	gen_event:start_link({local, ?MODULE}).
+	{ok, Pid} = gen_event:start_link({local, ?MODULE}),
+	io:format("Event Pid is:~p~n",[Pid]),
+	{ok, Pid}.
 
 add_handler(Handler, Args) ->
 	gen_event:add_handler(?MODULE, Handler, Args).

@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+add_handler	ge_event.erl	/^add_handler(Handler, Args) ->$/;"	f	module:ge_event
+add_handler	ge_event_appender.erl	/^add_handler() ->$/;"	f	module:ge_event_appender
+code_change	ge_event_appender.erl	/^code_change(_OldVsn, State, _Extra) ->$/;"	f	module:ge_event_appender
+delete_handler	ge_event.erl	/^delete_handler(Handler, Args) ->$/;"	f	module:ge_event
+delete_handler	ge_event_appender.erl	/^delete_handler() ->$/;"	f	module:ge_event_appender
+ge_app	ge_app.erl	/^-module(ge_app).$/;"	m
+ge_event	ge_event.erl	/^-module(ge_event).$/;"	m
+ge_event_appender	ge_event_appender.erl	/^-module(ge_event_appender).$/;"	m
+ge_sup	ge_sup.erl	/^-module(ge_sup).$/;"	m
+handle_call	ge_event_appender.erl	/^handle_call(_Request, State) ->$/;"	f	module:ge_event_appender
+handle_event	ge_event_appender.erl	/^handle_event(Event, State) ->$/;"	f	module:ge_event_appender
+handle_info	ge_event_appender.erl	/^handle_info(_, State) ->$/;"	f	module:ge_event_appender
+init	ge_event_appender.erl	/^init([]) ->$/;"	f	module:ge_event_appender
+init	ge_sup.erl	/^init([]) ->$/;"	f	module:ge_sup
+start	ge_app.erl	/^start(_StartType, _StartArgs) ->$/;"	f	module:ge_app
+start_app	test.erl	/^start_app() ->$/;"	f	module:test
+start_link	ge_event.erl	/^start_link() ->$/;"	f	module:ge_event
+start_link	ge_sup.erl	/^start_link() ->$/;"	f	module:ge_sup
+stop	ge_app.erl	/^stop(_State) -> ok./;"	f	module:ge_app
+terminate	ge_event_appender.erl	/^terminate(_Reason, _State) ->$/;"	f	module:ge_event_appender
+test	ge_event.erl	/^test(_, Info) ->$/;"	f	module:ge_event
+test	ge_event.erl	/^test(call, {Handler, Info}) ->$/;"	f	module:ge_event
+test	ge_event.erl	/^test(notify, Info) ->$/;"	f	module:ge_event
+test	test.erl	/^-module(test).$/;"	m
