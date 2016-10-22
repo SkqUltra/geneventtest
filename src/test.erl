@@ -4,3 +4,4 @@
 
 start_app() ->
     application:start(getest).
+    

@@ -2,7 +2,7 @@
 
 -behaviour(gen_event).
 
--export([add_handler/0, delete_handler/0]).
+-export([add_handler/0, delete_handler/0, add_error_logger/0]).
 
 -export([init/1, handle_event/2, handle_call/2,
 		handle_info/2, code_change/3, terminate/2]).
@@ -12,6 +12,9 @@ add_handler() ->
 
 delete_handler() ->
 	ge_event:delete_handler(?MODULE, []).
+
+add_error_logger() ->
+	error_logger:add_report_handler(?MODULE).
 
 init([]) ->
 	io:format("Add a Handler~n"),
@@ -29,6 +32,14 @@ handle_event(Event, State) ->
 	io:format("event get:~p~n",[Event]),
 	{ok, State}.
 
+handle_info(play_with_self, State) ->
+	self()!play_with_self,
+	io:format("play_with_self~n"),
+	{ok, State};
+handle_info(send_msg_to_self, State) ->
+	self()!123,
+	io:format("get send_msg_to_self~n"),
+	{ok, State};
 handle_info(_, State) ->
 	io:format("info get~n"),
 	{ok, State}.
